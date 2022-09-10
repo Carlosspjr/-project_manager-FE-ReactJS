@@ -1,17 +1,28 @@
-import './App.css';
-import Evento from './components/Evento'
-import Form from './components/Form'
-import HelloWorld from './components/HelloWorld'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import Home from './pages/Home'
+import Empresa from './pages/Empresa'
+import Contato from './pages/Contato'
+import NavBar from './components/Layout/NavBar'
+import Footer from './components/Layout/Footer'
 
 function App() {
+
   return (
-    <div className="App">
-      <h1>Testando Eventos</h1>
-      <Evento Numero={1}/>
-      <Evento Numero={2}/>
-      <Form/>
-      <HelloWorld/>    
-    </div>
+    <Router>
+      <NavBar/>
+      <Switch>
+        <Route exact path="/">
+          <Home/>
+        </Route>
+        <Route path="/empresa">
+          <Empresa/>
+        </Route>
+        <Route path="/contato">
+          <Contato/>
+        </Route>
+      </Switch>
+      <Footer/>
+    </Router>
   )
 }
 
